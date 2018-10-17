@@ -24,5 +24,5 @@ If you would wish to leave any sort of feedback on Professor Scope, please feel 
 * Email:
 
 ---
-##Changelog
+## Changelog
 * **Oct-16-2018** Initial Commit (README.md)
