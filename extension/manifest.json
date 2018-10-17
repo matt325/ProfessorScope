@@ -1,0 +1,17 @@
+{
+    "manifest_version": 2,
+
+    "name": "Professor Scope",
+    "description": "Links professors on the MSU course selection page to their RateMyProfessor review page",
+    "version": "0.0.1",
+    "homepage_url": "https://github.com/mattlul/ProfessorScope",
+    "author": "Matthew Kowalski",
+    
+    "content_scripts": [{
+      "css": ["profscope.css"],
+      "js": ["profscope.js"],
+      "matches": ["https://ssb.montclair.edu/PROD/bwskfcls.P_GetCrse/*"],
+      "run_at": "document_idle"
+    }]
+   
+  }
