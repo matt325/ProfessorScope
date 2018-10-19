@@ -12,6 +12,10 @@
       "js": ["profscope.js"],
       "matches": ["https://ssb.montclair.edu/PROD/bwskfcls.P_GetCrse/*"],
       "run_at": "document_idle"
-    }]
+    }],
+
+    "permissions": [
+      "http://www.ratemyprofessors.com/*"
+    ]
    
   }
