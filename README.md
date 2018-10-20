@@ -25,5 +25,5 @@ If you would wish to leave any sort of feedback on Professor Scope, please feel 
 
 ---
 ## Changelog
-* **Oct-16-2018** Initial Commit (README.md)
 * **Oct-20-2018** Implementation of Pre-Alpha concept
+* **Oct-16-2018** Initial Commit (README.md)
