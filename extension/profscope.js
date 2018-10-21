@@ -1,7 +1,3 @@
-
-// Initialize a collection that will be used to keep track of currently collected professors
-//var currentProfCollection = [];
-
 if(document.title == "Look Up Classes"){
     // Gives us the HTMLCollection of elements with the class "datadisplaytable"  
     var elements = document.getElementsByClassName("datadisplaytable");
@@ -12,8 +8,6 @@ if(document.title == "Look Up Classes"){
         if(elements[0].summary == "This layout table is used to present the sections found"){
             // The element (table element) has two children on each MSU Selection Page
             if(elements[0].children.length == 2){
-                // Clear n
-                //currentProfCollection = [];
                 professorLinker(elements[0].children[1]);
             }
         }
@@ -46,6 +40,12 @@ async function professorLinker(mainTbody){
             professorIndex = i;
             break;
         }
+    }
+    
+    // If the professorIndex is still null, there is no listing of professors on the page, so we return
+    if(professorIndex == null){
+        console.log("No Valid Professor Index");
+        return;
     }
 
     // Start from the third child (index 2). The first two children are always non-course children on MSU Selection page
