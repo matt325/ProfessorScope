@@ -25,5 +25,6 @@ If you would wish to leave any sort of feedback on Professor Scope, please feel 
 
 ---
 ## Changelog
+* **Nov-11-2018** Fixed a bug that caused inaccurate linking between professors and RMP-links
 * **Oct-20-2018** Implementation of Pre-Alpha concept
 * **Oct-16-2018** Initial Commit (README.md)
