@@ -64,11 +64,13 @@ async function professorLinker(mainTbody){
         if(professor.length == 4){
             var firstName = professor[0].toString();
             var lastName = professor[3].toString();
-            var fullName = lastName + " " + firstName;
+            var fullName = firstName + " " + lastName;
 
-            // If the Map contains a professor by their full name, no need to repeat the link search process
+            // If the Map does not contain a professor by their full name(key), then obtain the link, modify the element, and store to the Map
+            if(!collectedProfsMap.has(fullName)){
                 //TODO: Add checks/manipulation for names with '-' in them
-            if(!collectedProfsMap.has(fullName) && (!fullName.includes('-'))){
+                if(fullName.includes('-')) continue;
+                
                 // Try to get the link. An error will be thrown if a link does not exist (from the reject(...) in the promise)
                 try {
                     /*
@@ -83,12 +85,16 @@ async function professorLinker(mainTbody){
                     continue;
                 }
 
+                modifyElement(professorElement, profRMPLink, professorRoughText);
+
                 console.log(profRMPLink);
                 // Save the professor (by full name) and their RMP link in a Map
                 collectedProfsMap.set(fullName, profRMPLink);
-            }
-            if(collectedProfsMap.get(fullName) !== "no_link"){
-                modifyElement(professorElement, profRMPLink, professorRoughText);
+            // If the Map contains a professor by their full name(key) and the RMP-link(value) is not "no_link", then modify the element
+            }else if(collectedProfsMap.get(fullName) !== "no_link"){
+                // Get the store RMP-link(value) from the Map
+                var pLink = collectedProfsMap.get(fullName);
+                modifyElement(professorElement, pLink, professorRoughText);
             }
         }
     }
@@ -101,7 +107,6 @@ async function professorLinker(mainTbody){
  */
 function getRMPLink(firstName, lastName){
     var xhttp = new XMLHttpRequest();
-    var method = "POST";
     
     // Make sure the URL has "https" in it to avoid MixedContent... error
     var url = "https://www.ratemyprofessors.com/search.jsp?queryBy=teacherName&schoolName=montclair%20state%20university&queryoption=HEADER&query=" 
@@ -114,7 +119,7 @@ function getRMPLink(firstName, lastName){
         response = xhttp.responseText;
     };
     // Initiate the request
-    xhttp.open(method, url, true);
+    xhttp.open("POST", url, true);
     xhttp.send('');
 
     /*
@@ -166,6 +171,10 @@ function modifyElement(element, rmpLink, roughText){
     aTag.style.fontWeight = 'bold';
     aTag.style.color = '#0829a0';
     aTag.innerText = roughText;
+
+    /* aTag.onmouseover = function(){
+        console.log(rmpLink);
+    }; */
 
     element.textContent = "";
     element.appendChild(aTag);
