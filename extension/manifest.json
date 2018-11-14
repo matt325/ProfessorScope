@@ -2,7 +2,7 @@
     "manifest_version": 2,
 
     "name": "Professor Scope",
-    "description": "Links professors on the MSU course selection page to their RateMyProfessor review page",
+    "description": "Links professors on the MSU course selection page to their RateMyProfessor review page.",
     "version": "0.0.1",
     "homepage_url": "https://github.com/mattlul/ProfessorScope",
     "author": "Matthew Kowalski",
