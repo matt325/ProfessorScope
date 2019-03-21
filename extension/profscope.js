@@ -3,8 +3,6 @@
  * 
  * This file is part of ProfessorScope.
  * 
- * Please refer to the 'LICENSE' file for the defined terms
- * and conditions of this project.
  *******************************************************/
 if(document.title == "Look Up Classes"){
     // Gives us the HTMLCollection of elements with the class "datadisplaytable"  
